@@ -356,3 +356,104 @@ let cliente1 = new clienteBanco('Guilherme', 'Mourad', 20);
 let funcionario1 = new funcionarioBanco('Beatriz', 'Rizatto', 18);
 console.log(cliente1.greet);
 console.log(funcionario1.greet);
+const persons = [
+    {
+        name: 'Max Mustermann',
+        age: 25,
+        occupation: 'Chimney sweep'
+    },
+    {
+        name: 'Jane Doe',
+        age: 32,
+        role: 'Administrator'
+    },
+    {
+        name: 'Kate Müller',
+        age: 23,
+        occupation: 'Astronaut.'
+    },
+    {
+        name: 'Bruce Willis',
+        age: 64,
+        role: 'World saver.'
+    }
+];
+function logPerson(person10) {
+    let additionalInformation;
+    if ('role' in person10) {
+        additionalInformation = person10.role;
+    }
+    else {
+        additionalInformation = person10.occupation;
+    }
+    console.log(` - ${person10.name}, ${person10.age}, ${additionalInformation}`);
+}
+persons.forEach(logPerson);
+//--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||
+// Day 7 - Exercise 2
+class Animal {
+    constructor(name) {
+        this.name = name;
+    }
+    move(meters) {
+        console.log(`${this.name} moved ${meters}m.`);
+    }
+}
+class Snake extends Animal {
+    move(meters) {
+        console.log('Slithering...');
+        super.move(meters);
+    }
+}
+class Pony extends Animal {
+    move(meters) {
+        console.log('Galloping...');
+        super.move(meters);
+    }
+}
+const sammy = new Snake("Sammy the Snake");
+sammy.move(5);
+const pokey = new Pony("Pokey the Pony");
+pokey.move(34);
+//--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||
+// Day 7 - Exercise 3
+class Furniture {
+    //protected readonly manufacturer: string
+    constructor(manufacturer = 'IKEA') {
+        this.manufacturer = manufacturer;
+        this.manufacturer = manufacturer;
+    }
+}
+class Desk extends Furniture {
+    kind() {
+        console.log(`This is a desk made by ${this.manufacturer}`);
+    }
+}
+class Chair extends Furniture {
+    kind() {
+        console.log(`This is a chair made by ${this.manufacturer}`);
+    }
+}
+const desk = new Desk();
+desk.kind();
+//desk.manufacturer // Deve retornar um erro
+const chair = new Chair();
+chair.kind();
+//chair.manufacturer // Deve retornar um erro
+//--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||
+// Day 7 - Exercise 4
+let multiply;
+let capitalize;
+capitalize = function (value) {
+    return `${value.charAt(0).toUpperCase()}${value.slice(1)}`;
+};
+multiply = function (x, y) {
+    return x * y;
+};
+console.log(capitalize(`nifty ${multiply(5, 10)}`));
+//--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||--||
+// Day 7 - Exercise 5
+function layEggs(quantity, color) {
+    console.log(`You just laid ${quantity} ${color} eggs. Good job!`);
+}
+layEggs(2, 'blue');
